@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AvaTar-ArTs/all-agent-skills/blob/main/catalog/capability-authority.schema.json",
+  "title": "Capability Authority Record",
+  "type": "object",
+  "required": ["id", "kind", "canonical_path", "status", "sha256", "risk_tier"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$"},
+    "kind": {"enum": ["skill", "agent", "command", "hook", "plugin", "app"]},
+    "canonical_path": {"type": "string"},
+    "status": {"enum": ["active", "projected", "project-local", "system", "compatibility", "experimental", "archived", "cached"]},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source": {"type": "string"},
+    "source_commit": {"type": ["string", "null"]},
+    "host_projections": {"type": "array", "items": {"type": "string"}},
+    "risk_tier": {"enum": ["read-local", "local-write", "external-read", "external-write", "account-sensitive", "financial", "destructive"]},
+    "aliases": {"type": "array", "items": {"type": "string"}},
+    "replaced_by": {"type": ["string", "null"]},
+    "last_verified": {"type": ["string", "null"], "format": "date-time"}
+  },
+  "additionalProperties": false
+}

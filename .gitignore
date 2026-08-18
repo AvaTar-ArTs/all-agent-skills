@@ -1,0 +1,28 @@
+# Private/local capability material — never publish by accident
+.env*
+**/.env*
+**/auth*
+**/*credential*
+**/*token*
+**/*secret*
+**/*history*
+**/*session*
+**/memory/
+**/backups/
+**/cache/
+**/.cache/
+**/.git/
+*.sqlite
+*.sqlite3
+*.db
+*.key
+*.pem
+*.p12
+*.pfx
+*.zip
+*.DS_Store
+
+# Generated/local reports
+reports/local-home-*
+reports/raw-*
+
