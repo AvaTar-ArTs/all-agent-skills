@@ -1,0 +1,44 @@
+[
+  {
+    "id": "eval-01-analyze-only",
+    "description": "Analyze only: turn a short fable into a 4-unit image plan without generating.",
+    "prompt": "Analyze only: I want to turn this fable into a 4-panel image series. The story: a raccoon discovers an old junkyard and befriends a rusted robot. Create a unit plan but do not generate any images.",
+    "expected_output": {
+      "files_created": ["source-{slug}.md", "analysis.md", "plan.md", "specs/00-meta.yaml", "specs/01-*.yaml", "specs/02-*.yaml", "specs/03-*.yaml", "specs/04-*.yaml"],
+      "files_not_created": ["out/*.png"],
+      "behaviors": [
+        "No adapter is invoked",
+        "Confirmation gate is NOT shown (analyze-only mode stops before it)",
+        "Unit count matches requested 4 panels",
+        "Prompt body in each spec is non-empty"
+      ]
+    }
+  },
+  {
+    "id": "eval-02-dry-run-existing-specs",
+    "description": "From existing specs in fixtures, dry-run generate all units without credentials.",
+    "prompt": "The specs are already written. Generate all units in --dry-run mode from: tests/fixtures/mock-run/",
+    "expected_output": {
+      "behaviors": [
+        "pipeline_dry_run.py completes with exit 0",
+        "Both adapters print dry_run=true JSON",
+        "report-dryrun.md is written",
+        "No real API calls made"
+      ]
+    }
+  },
+  {
+    "id": "eval-03-regenerate-with-backup",
+    "description": "Regenerate unit 02 only, with backup of existing output.",
+    "prompt": "Regenerate unit 02 only. The existing audio file should be backed up first.",
+    "expected_output": {
+      "files_created": ["out/02-audio-welcome-backup-*.mp3"],
+      "behaviors": [
+        "R4 backup performed before regeneration",
+        "Only unit 02 adapter is invoked (not 01)",
+        "Mini-confirmation shown before proceeding",
+        "report.md updated with new status for unit 02"
+      ]
+    }
+  }
+]

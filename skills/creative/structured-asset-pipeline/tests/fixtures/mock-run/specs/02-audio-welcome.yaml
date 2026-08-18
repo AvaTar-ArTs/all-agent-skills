@@ -1,0 +1,16 @@
+attempts: 0
+backend: elevenlabs
+kind: audio
+last_error: null
+modality: audio
+model: eleven_multilingual_v2
+out_format: mp3
+out_relpath: out/01-sample-voice.mp3
+params:
+  similarity_boost: 0.7
+  stability: 0.4
+prompt: Welcome to the structured asset pipeline dry run.
+schema_version: '1.0'
+status: pending
+unit_id: 01-sample-voice
+voice_id: mock-voice-id-for-dry-run-only

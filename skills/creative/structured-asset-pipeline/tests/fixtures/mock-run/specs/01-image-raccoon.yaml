@@ -1,0 +1,14 @@
+schema_version: "1.0"
+unit_id: "01-sample"
+kind: "image"
+modality: "image"
+backend: "openai_images"
+status: "pending"
+prompt: "A simple flat icon of a raccoon silhouette, solid background, no text."
+aspect_ratio: "1:1"
+model: "gpt-image-1"
+out_relpath: "out/01-sample.png"
+out_format: "png"
+params: {}
+attempts: 0
+last_error: null

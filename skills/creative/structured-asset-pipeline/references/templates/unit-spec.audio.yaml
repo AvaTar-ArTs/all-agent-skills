@@ -1,0 +1,24 @@
+schema_version: "1.0"
+unit_id: "NN-slug"
+kind: "audio"
+modality: "audio"
+backend: "elevenlabs"        # elevenlabs | suno_unofficial
+status: "pending"
+
+scene_id: null
+character_ids: []
+
+prompt: |
+  [For TTS: the spoken text. For music: lyrics/style description.]
+voice_id: null               # Required for ElevenLabs
+model: null
+duration_hint_sec: null
+params: {}
+# elevenlabs: stability, similarity_boost, style, speed, output_format
+# suno: tags, title, make_instrumental, model_version
+
+out_relpath: "out/NN-slug.mp3"
+out_format: "mp3"
+
+attempts: 0
+last_error: null

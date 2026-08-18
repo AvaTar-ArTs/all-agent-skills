@@ -1,0 +1,16 @@
+schema_version: "1.0"
+unit_id: "01-sample-voice"
+kind: "audio"
+modality: "audio"
+backend: "elevenlabs"
+status: "pending"
+prompt: "Welcome to the structured asset pipeline dry run."
+voice_id: "REPLACE_ME"
+model: "eleven_multilingual_v2"
+out_relpath: "out/01-sample-voice.mp3"
+out_format: "mp3"
+params:
+  stability: 0.4
+  similarity_boost: 0.7
+attempts: 0
+last_error: null
